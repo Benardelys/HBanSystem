@@ -1,0 +1,49 @@
+enabled: true
+
+security-prefix: "&8[&cHBanSystem Security&8] "
+
+evidence-retention-days: 30
+
+thresholds:
+  low: 20
+  medium: 40
+  high: 60
+  very-high: 80
+  critical: 95
+
+actions:
+  low: "LOG"
+  medium: "STAFF_ALERT"
+  high: "STAFF_ALERT"
+  very-high: "KICK"
+  critical: "TEMPBAN"
+
+tempban-duration: "7d"
+tempban-reason: "Şüpheli Enjeksiyon / Hile Protokolü Tespiti"
+kick-reason: "Protokol tutarsızlığı tespit edildi."
+
+alerts:
+  format: |
+    <red><bold>[HBanSystem Güvenlik Tespiti]</bold></red>
+    <gray>Oyuncu: <yellow>{player}</yellow>
+    <gray>Tespit Türü: <aqua>{type}</aqua>
+    <gray>Seviye: {level_color}{level}</gray>
+    <gray>Güven Skoru: <gold>%{confidence}</gold>
+    <gray>Uygulanan Eylem: <white>{action}</white>
+  cooldown-seconds: 15
+  duplicate-suppression: true
+
+whitelist-brands:
+  - "vanilla"
+  - "fabric"
+  - "forge"
+  - "neoforge"
+  - "optifine"
+  - "lunarclient"
+  - "badlion"
+  - "feather"
+  - "sodium"
+  - "iris"
+  - "essential"
+  - "geyser"
+  - "viaversion"

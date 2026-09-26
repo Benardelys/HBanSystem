@@ -1,0 +1,26 @@
+enabled: false
+
+webhook-url: ""
+bot-name: "HBanSystem Moderasyon"
+avatar-url: "https://minotar.net/avatar/MHF_Custom/128.png"
+
+events:
+  ban: true
+  unban: true
+  mute: true
+  unmute: true
+  kick: true
+  warn: true
+  unipban: true
+  security: true
+
+colors:
+  ban: 16711680
+  tempban: 16744448
+  unban: 65280
+  mute: 16766720
+  tempmute: 16776960
+  unmute: 65280
+  kick: 16753920
+  warn: 16776960
+  security: 10038562

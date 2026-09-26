@@ -1,0 +1,125 @@
+prefix: "&8[&6HBanSystem&8] "
+
+general:
+  no-permission: "%prefix%&cBu işlemi gerçekleştirmek için yetkiniz bulunmuyor."
+  invalid-duration: "%prefix%&cGeçersiz süre formatı! <gray>Örnekler: <yellow>30m, 2h, 7d, 1mo, perm</yellow>"
+  player-not-found: "%prefix%&cOyuncu bulunamadı veya veritabanında kaydı yok."
+  player-immune: "%prefix%&cBu oyuncunun ceza dokunulmazlığı bulunmaktadır!"
+  hierarchy-prevented: "%prefix%&cKendisinden daha üst veya eşit rütbedeki bir yetkiliyi cezalandıramazsınız!"
+  reload-success: "%prefix%&aHBanSystem yapılandırma dosyaları başarıyla yenilendi."
+  error-occurred: "%prefix%&cİşlem gerçekleştirilirken bir hata meydana geldi. Konsol kayıtlarını kontrol edin."
+  cannot-punish-self: "%prefix%&cKendinizi cezalandıramazsınız!"
+  invalid-ip: "%prefix%&cGeçersiz bir IP adresi girdiniz!"
+  max-duration-exceeded: "%prefix%&cBu süreyle ceza uygulama yetkiniz bulunmuyor."
+  reason-required: "%prefix%&cCeza uygulamak için geçerli bir sebep belirtmelisiniz."
+
+messages:
+  no-permission: "%prefix%&cBu işlemi gerçekleştirmek için yetkiniz bulunmuyor."
+  player-not-found: "%prefix%&cOyuncu bulunamadı."
+  invalid-duration: "%prefix%&cGeçersiz süre formatı."
+  player-banned: "%prefix%&aOyuncu başarıyla yasaklandı."
+  player-unbanned: "%prefix%&aOyuncunun yasağı kaldırıldı."
+  player-muted: "%prefix%&eOyuncu başarıyla susturuldu."
+  player-unmuted: "%prefix%&aOyuncunun susturması kaldırıldı."
+  player-kicked: "%prefix%&cOyuncu sunucudan atıldı."
+  warning-created: "%prefix%&eOyuncuya uyarı verildi."
+
+punishments:
+  ban:
+    success: "%prefix%&a<yellow>{player}</yellow> adlı oyuncu başarıyla yasaklandı. Sebep: <white>{reason}</white>"
+    broadcast: "%prefix%&c<yellow>{player}</yellow>, <gold>{staff}</gold> tarafından kalıcı olarak yasaklandı! Sebep: <white>{reason}</white>"
+    silent-broadcast: "<gray>[Sessiz] </gray>%prefix%&c<yellow>{player}</yellow>, <gold>{staff}</gold> tarafından yasaklandı. Sebep: <white>{reason}</white>"
+    already-banned: "%prefix%&cBu oyuncunun zaten aktif bir yasağı bulunuyor."
+  tempban:
+    success: "%prefix%&a<yellow>{player}</yellow> adlı oyuncu <aqua>{duration}</aqua> süreyle yasaklandı. Sebep: <white>{reason}</white>"
+    broadcast: "%prefix%&c<yellow>{player}</yellow>, <gold>{staff}</gold> tarafından <aqua>{duration}</aqua> süreyle yasaklandı! Sebep: <white>{reason}</white>"
+    silent-broadcast: "<gray>[Sessiz] </gray>%prefix%&c<yellow>{player}</yellow>, <gold>{staff}</gold> tarafından <aqua>{duration}</aqua> yasaklandı."
+  unban:
+    success: "%prefix%&a<yellow>{player}</yellow> adlı oyuncunun yasağı kaldırıldı. Sebep: <white>{reason}</white>"
+    broadcast: "%prefix%&a<yellow>{player}</yellow> adlı oyuncunun yasağı <gold>{staff}</gold> tarafından kaldırıldı. Sebep: <white>{reason}</white>"
+    not-banned: "%prefix%&cBu oyuncunun aktif bir yasağı bulunmuyor."
+  mute:
+    success: "%prefix%&a<yellow>{player}</yellow> adlı oyuncu kalıcı olarak susturuldu. Sebep: <white>{reason}</white>"
+    broadcast: "%prefix%&e<gold>{player}</gold>, <aqua>{staff}</aqua> tarafından kalıcı olarak susturuldu! Sebep: <white>{reason}</white>"
+    silent-broadcast: "<gray>[Sessiz] </gray>%prefix%&e<gold>{player}</gold> kalıcı susturuldu."
+    already-muted: "%prefix%&cBu oyuncunun zaten aktif bir susturması bulunuyor."
+  tempmute:
+    success: "%prefix%&a<yellow>{player}</yellow> adlı oyuncu <aqua>{duration}</aqua> süreyle susturuldu. Sebep: <white>{reason}</white>"
+    broadcast: "%prefix%&e<gold>{player}</gold>, <aqua>{staff}</aqua> tarafından <aqua>{duration}</aqua> süreyle susturuldu! Sebep: <white>{reason}</white>"
+    silent-broadcast: "<gray>[Sessiz] </gray>%prefix%&e<gold>{player}</gold> süreli susturuldu."
+  unmute:
+    success: "%prefix%&a<yellow>{player}</yellow> adlı oyuncunun susturması kaldırıldı."
+    broadcast: "%prefix%&a<yellow>{player}</yellow> adlı oyuncunun susturması <gold>{staff}</gold> tarafından kaldırıldı."
+    not-muted: "%prefix%&cBu oyuncunun aktif bir susturması bulunuyor."
+  kick:
+    success: "%prefix%&a<yellow>{player}</yellow> sunucudan atıldı. Sebep: <white>{reason}</white>"
+    broadcast: "%prefix%&6<yellow>{player}</yellow>, <aqua>{staff}</aqua> tarafından sunucudan atıldı! Sebep: <white>{reason}</white>"
+    silent-broadcast: "<gray>[Sessiz] </gray>%prefix%&6<yellow>{player}</yellow> atıldı."
+  warn:
+    success: "%prefix%&a<yellow>{player}</yellow> uyarıldı. Sebep: <white>{reason}</white> (Ceza ID: #{id})"
+    broadcast: "%prefix%&6<yellow>{player}</yellow>, <aqua>{staff}</aqua> tarafından uyarıldı! Sebep: <white>{reason}</white>"
+    silent-broadcast: "<gray>[Sessiz] </gray>%prefix%&6<yellow>{player}</yellow> uyarıldı."
+    notification: "<red><bold>[UYARI]</bold></red> <yellow>Yetkili:</yellow> {staff} <newline><yellow>Sebep:</yellow> {reason} <newline><gray>Lütfen kurallara dikkat ediniz!"
+  unwarn:
+    success: "%prefix%&a#{id} numaralı uyarı başarıyla kaldırıldı."
+    not-found: "%prefix%&cBu oyuncuya ait #{id} numaralı aktif bir uyarı bulunamadı."
+  ipban:
+    success: "%prefix%&a<yellow>{target}</yellow> için IP yasağı uygulandı. Sebep: <white>{reason}</white>"
+    broadcast: "%prefix%&cBir IP adresi kalıcı olarak engellendi! Sebep: <white>{reason}</white>"
+    already-banned: "%prefix%&cBu IP adresinin zaten aktif bir yasağı bulunuyor."
+  tempipban:
+    success: "%prefix%&a<yellow>{target}</yellow> için <aqua>{duration}</aqua> süreli IP yasağı uygulandı."
+    broadcast: "%prefix%&cBir IP adresi <aqua>{duration}</aqua> süreyle engellendi! Sebep: <white>{reason}</white>"
+  unipban:
+    success: "%prefix%&a<yellow>{target}</yellow> IP yasağı kaldırıldı."
+    broadcast: "%prefix%&aBir IP yasağı <gold>{staff}</gold> tarafından kaldırıldı."
+    not-banned: "%prefix%&cBu IP adresine ait aktif bir yasak bulunmuyor."
+
+screens:
+  ban: |
+    <red><bold>SUNUCUDAN YASAKLANDINIZ!</bold></red>
+    
+    <gray>Yasaklayan Yetkili: <gold>{staff}</gold>
+    <gray>Sebep: <yellow>{reason}</yellow>
+    <gray>Kalan Süre: <aqua>{duration}</aqua>
+    <gray>Ceza ID: <yellow>#{id}</yellow>
+    
+    <dark_gray>İtiraz ve destek talepleri için Discord sunucumuzu ziyaret edin.
+  ipban: |
+    <dark_red><bold>IP ADRESİNİZ ENGELLENDİ!</bold></dark_red>
+    
+    <gray>Yetkili: <gold>{staff}</gold>
+    <gray>Sebep: <yellow>{reason}</yellow>
+    <gray>Kalan Süre: <aqua>{duration}</aqua>
+    <gray>Ceza ID: <yellow>#{id}</yellow>
+    
+    <dark_gray>Bu ağ üzerinden sunucuya erişim sınırlandırılmıştır.
+  kick: |
+    <gold><bold>SUNUCUDAN UZAKLAŞTIRILDINIZ</bold></gold>
+    
+    <gray>Yetkili: <aqua>{staff}</aqua>
+    <gray>Sebep: <yellow>{reason}</yellow>
+  mute-chat-attempt: "%prefix%&cSusturulduğunuz için mesaj gönderemezsiniz! <gray>(Kalan Süre: <aqua>{duration}</aqua> | Sebep: <yellow>{reason}</yellow> | ID: #{id})"
+  mute-command-attempt: "%prefix%&cSusturulduğunuz için bu komutu kullanamazsınız! <gray>(Kalan Süre: <aqua>{duration}</aqua>)"
+
+info:
+  check-header: "<gradient:#4facfe:#00f2fe>=== [HBanSystem] {player} Ceza Durumu ===</gradient>"
+  check-ban-status: "<gray>Yasak Durumu: {status}"
+  check-mute-status: "<gray>Susturma Durumu: {status}"
+  check-warnings: "<gray>Aktif Uyarı Sayısı: <yellow>{count}</yellow>"
+  history-header: "<gradient:#4facfe:#00f2fe>=== [HBanSystem] {player} Ceza Geçmişi (Sayfa {page}/{total}) ===</gradient>"
+  history-entry: "<yellow>#{id}</yellow> | <aqua>{type}</aqua> | <white>{reason}</white> | <gray>{staff}</gray> | <gold>{date}</gold> | <yellow>{duration}</yellow> | {status}"
+  history-footer: "<gray>Sonraki sayfaya geçmek için: <yellow>/hban history {player} {nextpage}</yellow>"
+  history-empty: "<green>Bu oyuncuya ait herhangi bir ceza kaydı bulunmuyor."
+  baninfo-header: "<gradient:#4facfe:#00f2fe>=== Ceza Detayı: #{id} ===</gradient>"
+  baninfo-target: "<gray>Hedef: <yellow>{player}</yellow> <dark_gray>({uuid})</dark_gray>"
+  baninfo-type: "<gray>Ceza Türü: <aqua>{type}</aqua>"
+  baninfo-reason: "<gray>Sebep: <white>{reason}</white>"
+  baninfo-staff: "<gray>Yetkili: <gold>{staff}</gold>"
+  baninfo-date: "<gray>Tarih: <white>{date}</white>"
+  baninfo-expiry: "<gray>Kalan Süre: <yellow>{duration}</yellow>"
+  baninfo-status: "<gray>Durum: {status}"
+  baninfo-revocation: "<gray>Kaldıran Yetkili: <gold>{staff}</gold> <newline><gray>Kaldırma Sebebi: <white>{reason}</white> <newline><gray>Kaldırma Tarihi: <white>{date}</white>"
+  alts-header: "<gradient:#4facfe:#00f2fe>=== [HBanSystem] {player} Yan Hesapları ({count} Adet) ===</gradient>"
+  alts-entry: "<gray>• <yellow>{name}</yellow> <dark_gray>({uuid})</dark_gray> {status}"
+  alts-empty: "<green>Bu oyuncuyla eşleşen başka bir hesap bulunamadı."

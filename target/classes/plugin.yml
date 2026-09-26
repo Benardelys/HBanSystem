@@ -1,0 +1,226 @@
+name: HBanSystem
+version: 1.0.0
+main: com.ardelys.hbansystem.HBanSystem
+api-version: '1.21'
+author: Ardelys
+description: Advanced Minecraft Punishment, Moderation and Security System
+website: https://github.com/ardelys/HBanSystem
+softdepend:
+  - LuckPerms
+  - PlaceholderAPI
+
+commands:
+  hban:
+    description: HBanSystem yönetim, güvenlik ve moderasyon ana komutu.
+    permission: hban.admin
+    aliases: [hbansystem, abans]
+    usage: /hban <subcommand> [parametreler]
+  ban:
+    description: Bir oyuncuyu kalıcı veya süreli olarak yasaklar.
+    permission: hban.ban
+    usage: /ban <oyuncu> [süre] <sebep>
+  tempban:
+    description: Bir oyuncuyu belirli bir süreyle yasaklar.
+    permission: hban.tempban
+    usage: /tempban <oyuncu> <süre> <sebep>
+  unban:
+    description: Bir oyuncunun yasağını kaldırır.
+    permission: hban.unban
+    usage: /unban <oyuncu> [sebep]
+  mute:
+    description: Bir oyuncuyu kalıcı veya süreli susturur.
+    permission: hban.mute
+    usage: /mute <oyuncu> [süre] <sebep>
+  tempmute:
+    description: Bir oyuncuyu süreli olarak susturur.
+    permission: hban.tempmute
+    usage: /tempmute <oyuncu> <süre> <sebep>
+  unmute:
+    description: Bir oyuncunun susturmasını kaldırır.
+    permission: hban.unmute
+    usage: /unmute <oyuncu> [sebep]
+  kick:
+    description: Bir oyuncuyu sunucudan atar.
+    permission: hban.kick
+    usage: /kick <oyuncu> <sebep>
+  warn:
+    description: Bir oyuncuya uyarı verir.
+    permission: hban.warn
+    usage: /warn <oyuncu> <sebep>
+  unwarn:
+    description: Bir uyarının geçerliliğini kaldırır.
+    permission: hban.unwarn
+    usage: /unwarn <oyuncu> <id>
+  ipban:
+    description: Bir IP adresini veya oyuncunun IP'sini yasaklar.
+    permission: hban.ipban
+    usage: /ipban <oyuncu|ip> [süre] <sebep>
+  tempipban:
+    description: Bir IP adresini süreli olarak yasaklar.
+    permission: hban.tempipban
+    usage: /tempipban <oyuncu|ip> <süre> <sebep>
+  unipban:
+    description: Bir IP yasağını kaldırır.
+    permission: hban.unipban
+    usage: /unipban <oyuncu|ip> [sebep]
+  checkban:
+    description: Oyuncunun yasak durumunu kontrol eder.
+    permission: hban.check
+    usage: /checkban <oyuncu>
+  checkmute:
+    description: Oyuncunun susturma durumunu kontrol eder.
+    permission: hban.check
+    usage: /checkmute <oyuncu>
+  history:
+    description: Oyuncunun tüm ceza geçmişini görüntüler.
+    permission: hban.history
+    aliases: [punishments]
+    usage: /history <oyuncu> [sayfa]
+  banlist:
+    description: Aktif yasakları listeler.
+    permission: hban.banlist
+    usage: /banlist [sayfa]
+  mutelist:
+    description: Aktif susturmaları listeler.
+    permission: hban.mutelist
+    usage: /mutelist [sayfa]
+  warnlist:
+    description: Aktif uyarıları listeler.
+    permission: hban.warnlist
+    aliases: [warnings]
+    usage: /warnlist [sayfa]
+  baninfo:
+    description: Ceza detaylarını ID ile görüntüler.
+    permission: hban.baninfo
+    aliases: [punishment]
+    usage: /baninfo <id>
+  alts:
+    description: Aynı IP üzerinden giriş yapan hesapları listeler.
+    permission: hban.alts
+    usage: /alts <oyuncu>
+
+permissions:
+  hban.admin:
+    description: Tam HBanSystem yönetici yetkisi.
+    default: op
+  hban.ban:
+    description: Oyuncu yasaklama yetkisi.
+    default: op
+  hban.tempban:
+    description: Süreli yasaklama yetkisi.
+    default: op
+  hban.unban:
+    description: Yasak kaldırma yetkisi.
+    default: op
+  hban.mute:
+    description: Susturma yetkisi.
+    default: op
+  hban.tempmute:
+    description: Süreli susturma yetkisi.
+    default: op
+  hban.unmute:
+    description: Susturma kaldırma yetkisi.
+    default: op
+  hban.kick:
+    description: Sunucudan atma yetkisi.
+    default: op
+  hban.warn:
+    description: Uyarma yetkisi.
+    default: op
+  hban.unwarn:
+    description: Uyarı kaldırma yetkisi.
+    default: op
+  hban.ipban:
+    description: IP yasaklama yetkisi.
+    default: op
+  hban.tempipban:
+    description: Süreli IP yasaklama yetkisi.
+    default: op
+  hban.unipban:
+    description: IP yasak kaldırma yetkisi.
+    default: op
+  hban.history:
+    description: Ceza geçmişini görüntüleme yetkisi.
+    default: op
+  hban.check:
+    description: Ceza durumu sorgulama yetkisi.
+    default: op
+  hban.banlist:
+    description: Yasak listesini görüntüleme yetkisi.
+    default: op
+  hban.mutelist:
+    description: Susturma listesini görüntüleme yetkisi.
+    default: op
+  hban.warnlist:
+    description: Uyarı listesini görüntüleme yetkisi.
+    default: op
+  hban.baninfo:
+    description: Ceza detayı görüntüleme yetkisi.
+    default: op
+  hban.alts:
+    description: Yan hesap sorgulama yetkisi.
+    default: op
+  hban.reload:
+    description: Eklenti ayarlarını yenileme yetkisi.
+    default: op
+  hban.immune:
+    description: Ceza dokunulmazlığı.
+    default: false
+  hban.bypass:
+    description: Ceza ve moderasyon kısıtlamalarını aşma yetkisi.
+    default: op
+  hban.bypass.mute:
+    description: Susturulmayı göz ardı etme yetkisi.
+    default: op
+  hban.alerts:
+    description: Güvenlik tespit bildirimlerini alma yetkisi.
+    default: op
+  hban.security:
+    description: Güvenlik kanıtlarını inceleme yetkisi.
+    default: op
+  hban.security.view:
+    description: Güvenlik tespit ve kanıtlarını görüntüleme yetkisi.
+    default: op
+  hban.security.debug:
+    description: Güvenlik motoru ve tespit sağlık durumunu inceleme yetkisi.
+    default: op
+  hban.help:
+    description: Yardım komutunu görüntüleme yetkisi.
+    default: true
+  hban.info:
+    description: Sistem durumunu görüntüleme yetkisi.
+    default: op
+  hban.punishments:
+    description: Ceza geçmişini sorgulama yetkisi.
+    default: op
+  hban.bypass.ban:
+    description: Yasaklamalara karşı dokunulmazlık.
+    default: false
+  hban.bypass.kick:
+    description: Sunucudan atılmaya karşı dokunulmazlık.
+    default: false
+  hban.bypass.warn:
+    description: Uyarılara karşı dokunulmazlık.
+    default: false
+  hban.bypass.security:
+    description: Güvenlik motorunun otomatik yaptırımlarına karşı dokunulmazlık.
+    default: false
+  hban.bypass.override:
+    description: Dokunulmazlık ve hiyerarşi korumasını geçersiz kılma yetkisi.
+    default: op
+  hban.reason.bypass:
+    description: Ceza sebebi belirtmeden ceza verme yetkisi.
+    default: op
+  hban.duration.unlimited:
+    description: Süre sınırlarını aşma yetkisi.
+    default: op
+  hban.database:
+    description: Veritabanı yönetim komutlarına erişim yetkisi.
+    default: op
+  hban.database.status:
+    description: Veritabanı havuz durumunu görüntüleme yetkisi.
+    default: op
+  hban.database.migrate:
+    description: Veritabanı şema doğrulama ve migrasyon yetkisi.
+    default: op
+

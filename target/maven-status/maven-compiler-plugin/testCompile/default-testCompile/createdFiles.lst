@@ -1,0 +1,7 @@
+com\ardelys\hbansystem\HmacSecurityTest.class
+com\ardelys\hbansystem\WebSyncServiceTest.class
+com\ardelys\hbansystem\ReplayProtectionTest.class
+com\ardelys\hbansystem\ValidationUtilTest.class
+com\ardelys\hbansystem\PunishmentModelTest.class
+com\ardelys\hbansystem\SecurityPerformanceLoadTest.class
+com\ardelys\hbansystem\DurationParserTest.class

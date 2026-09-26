@@ -1,0 +1,134 @@
+prefix: "&8[&6HBanSystem&8] "
+
+branding:
+  name: "HBanSystem"
+  prefix: "&8[&6HBanSystem&8] "
+  author: "Ardelys"
+
+server:
+  scope: "global"
+
+punishments:
+  silent-flag: "-s"
+  
+  defaults:
+    ban-reason: "Kurallara aykırı davranış"
+    mute-reason: "Sohbet kurallarına uymama"
+    kick-reason: "Sunucudan uzaklaştırıldınız"
+    warn-reason: "Uyarı kuralları ihlali"
+    unban-reason: "Yetkili tarafından kaldırıldı"
+    unmute-reason: "Yetkili tarafından kaldırıldı"
+
+  require-reason: true
+
+  blocked-commands-while-muted:
+    - "/msg"
+    - "/tell"
+    - "/w"
+    - "/whisper"
+    - "/r"
+    - "/reply"
+    - "/me"
+    - "/say"
+    - "/mail"
+
+immunity:
+  enabled: true
+  
+  check-luckperms-hierarchy: true
+  
+  exempt-players:
+    - "Ardelys"
+
+staff-hierarchy:
+  enabled: true
+  use-luckperms-weight: true
+  minimum-weight-difference: 1
+
+protection:
+  prevent-self-punishment: true
+
+authorization:
+  admin-override:
+    enabled: true
+    bypass-immunity: true
+    bypass-hierarchy: true
+
+duration-limits:
+  enabled: true
+  limits:
+    hban.duration.moderator: "7d"
+    hban.duration.helper: "1d"
+
+logging:
+  permission-denied: true
+
+warning-ladder:
+  enabled: false
+  thresholds:
+    3:
+      action: "tempmute"
+      duration: "1h"
+      reason: "3 Aktif Uyarı Limiti Aşıldı"
+    5:
+      action: "tempban"
+      duration: "1d"
+      reason: "5 Aktif Uyarı Limiti Aşıldı"
+
+fail-safe:
+  allow-login-on-db-error: true
+  notify-staff-on-error: true
+
+gui:
+  enabled: true
+  rows: 6
+
+web:
+  enabled: false
+  api:
+    enabled: true
+    host: "127.0.0.1"
+    port: 8080
+    base-path: "/api/hbansystem"
+    api-key: "CHANGE_ME"
+    hmac-secret: "CHANGE_ME"
+    previous-hmac-secret: ""
+    require-hmac: false
+    rate-limit:
+      enabled: true
+      requests-per-minute: 120
+      authenticated-requests-per-minute: 600
+    maximum-limit: 100
+    max-body-bytes: 65536
+    max-query-chars: 2048
+    cors:
+      enabled: true
+      allowed-origins:
+        - "http://localhost"
+        - "https://localhost"
+    compression:
+      enabled: true
+      min-bytes: 512
+  outbound-sync:
+    enabled: false
+    endpoint-url: ""
+    api-key: ""
+    hmac-secret: ""
+    queue-capacity: 1000
+    batch-enabled: true
+    batch-max-size: 25
+    connect-timeout-ms: 2000
+    read-timeout-ms: 3000
+    max-retries: 3
+    retry-backoff-base-ms: 1000
+  cache:
+    enabled: true
+    duration-seconds: 10
+  public:
+    show-reason: true
+    show-duration: true
+    show-staff: true
+    show-ip: false
+    show-uuid: false
+    show-punishment-id: false
+    show-security-evidence: false
